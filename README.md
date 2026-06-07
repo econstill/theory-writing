@@ -14,6 +14,10 @@ This thread/workspace is intended to serve as reusable context for writing econo
 
 Source: `D:/Papers_PDF/Incoming/beamer_tips.pdf`, "Tips + Tricks with Beamer for Economists" by Paul Goldsmith-Pinkham, dated March 11, 2019.
 
+Canonical source repository: `https://github.com/paulgp/beamer-tips`.
+
+When building actual Beamer decks, use the source repository as the implementation reference, especially `slides.tex`, rather than relying only on the PDF summary. The repo also includes generated example PDFs and `some_figures.R`, which is useful for matching plot design to the slide style.
+
 ### Core Design Principles
 
 - Aim for minimalist slides, but not boring slides.
@@ -86,6 +90,7 @@ Source: `D:/Papers_PDF/Incoming/beamer_tips.pdf`, "Tips + Tricks with Beamer for
 - Use `\appendix` so backup slides restart numbering after the main talk.
 - Use `\hyperlink{label}{object}` and Beamer buttons to jump to backup slides and back.
 - Use Beamer notes with `\note{...}` for speaker prompts.
+- Source-level reference components from `slides.tex` include `notes` mode, `pgfpages`, `appendixnumberbeamer`, TikZ overlay helpers, `wideitemize`, transition frames, `booktabs`, `dcolumn`, `multirow`, and figure/table sizing idioms.
 
 ### Useful Frame Types To Keep Around
 
@@ -97,13 +102,41 @@ Source: `D:/Papers_PDF/Incoming/beamer_tips.pdf`, "Tips + Tricks with Beamer for
 - Research-design timeline frame.
 - Equation-highlight frame.
 - Backup detail frame linked from the main talk.
+- Speaker-notes frame setup, when preparing a live talk.
+- Optional video/commentary frame pattern from the source, if a talk needs presenter/video integration.
+
+## Source Repository Notes
+
+Use `paulgp/beamer-tips` as a reusable Beamer implementation library:
+
+- `slides.tex`: primary template and source of reusable Beamer environments, color settings, note settings, appendix handling, TikZ overlays, table reveals, and figure reveals.
+- `slides.pdf`: rendered visual reference for the overall style.
+- `some_figures.R`: source for example figures; use it as a reminder to make plot backgrounds, label sizes, and visual scale compatible with slides.
+- Example figure PDFs: useful references for bad/good/best graph label sizing, overlays, and colorblind palettes.
+
+When making a new economics theory deck, first decide the intellectual structure, then borrow only the necessary implementation pieces from the source template. Do not copy the whole demo deck unless building a template file.
 
 ## Default Beamer Preamble Preferences
 
 ```tex
 \documentclass[aspectratio=169]{beamer}
 
+\usepackage{pgfpages}
 \usepackage[default]{lato}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{multirow}
+\usepackage{appendixnumberbeamer}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{matrix,shapes,arrows,fit,tikzmark}
 
 \definecolor{blue}{RGB}{0,114,178}
 \definecolor{red}{RGB}{213,94,0}
@@ -125,6 +158,10 @@ Source: `D:/Papers_PDF/Incoming/beamer_tips.pdf`, "Tips + Tricks with Beamer for
 \newenvironment{transitionframe}
   {\setbeamercolor{background canvas}{bg=yellow}\begin{frame}}
   {\end{frame}}
+
+\newenvironment{wideitemize}
+  {\itemize\addtolength{\itemsep}{10pt}}
+  {\enditemize}
 ```
 
 ## Future Instruction For Codex
@@ -138,4 +175,5 @@ When helping with econ theory slides in this workspace:
 - Use Beamer links to backup material when a main-slide claim needs technical support.
 - Keep colors consistent and colorblind-friendly.
 - Make figures and tables presentation-sized, not paper-sized.
+- If the task asks for Beamer source, check `https://github.com/paulgp/beamer-tips/blob/master/slides.tex` for reusable patterns.
 - When possible, compile and visually inspect Beamer output before final delivery.
