@@ -116,6 +116,10 @@ Use `paulgp/beamer-tips` as a reusable Beamer implementation library:
 
 When making a new economics theory deck, first decide the intellectual structure, then borrow only the necessary implementation pieces from the source template. Do not copy the whole demo deck unless building a template file.
 
+## Project Files
+
+- `templates/SEM0509_improved.tex`: improved Beamer draft for the Strategic Elasticity 15-minute HUST talk, based on the local paper source `D:/Papers_PDF/Incoming/main.tex` and the user's original Beamer file `D:/Papers_PDF/Incoming/SEM0509.tex`.
+
 ## Default Beamer Preamble Preferences
 
 ```tex
