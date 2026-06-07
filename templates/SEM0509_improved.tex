@@ -92,7 +92,7 @@
 \newcommand{\E}{\mathrm{E}}
 
 \title{\textbf{Strategic Elasticity}}
-\subtitle{A relative measure of feedback in games}
+\subtitle{SEM: a relative measure of feedback in games}
 \author{Zhigang Cao, \textbf{Sijie Wang}, Feng Zhu}
 \institute{
 Beijing Jiaotong University\\[0.35em]
@@ -198,33 +198,65 @@ change in each player's best response.
 
 \begin{frame}{Fixed-point theorem: the engine}
 \begin{mytheorem}[Fixed Points]
-Let $K\subseteq\R^M_{++}$ be nonempty and log-convex, and let $F:K\to K$ be inelastic.
+Let $K\subseteq\R^M_+$ be nonempty and log-convex, and let
+$\widetilde K=K\cap\R^M_{++}$. If $F:K\to K$ is inelastic and
+$F(\widetilde K)\subseteq\widetilde K$, then:
 \begin{wideitemize}
-    \item $F$ admits at most one fixed point.
-    \item If a fixed point exists, iterating $F$ converges to it from every initial point.
-    \item Existence follows from compact invariance, or from strong inelasticity plus closedness.
+    \item $F$ admits at most one fixed point in $\widetilde K$.
+    \item If a fixed point exists in $\widetilde K$, iterating $F$ converges to it from every positive initial point.
+    \item Existence follows from compact invariance, or from strong inelasticity plus $d_T$-closedness.
 \end{wideitemize}
 \end{mytheorem}
 
 \begin{block}{Why this matters}
-The method is a Banach-style contraction argument, but with Thompson's metric
-instead of a normed metric.
+Inelasticity is a local condition; log-convexity lets it become a global
+contractive property under Thompson's metric.
 \end{block}
 \end{frame}
 
 \begin{frame}{Equilibrium of inelastic games}
 \begin{mytheorem}[Equilibrium]
-For an inelastic game with log-convex strategy space $S\subseteq\R^N_{++}$:
+For a nice inelastic game with strategy space $S\subseteq\R^N_+$ and
+$\widetilde S=S\cap\R^N_{++}$:
 \begin{wideitemize}
-    \item there is at most one Nash equilibrium;
-    \item if an equilibrium exists, best-response dynamics converge globally;
-    \item existence is guaranteed under compactness, or under strong inelasticity and closedness.
+    \item there is at most one strictly positive Nash equilibrium;
+    \item if it exists, best-response dynamics converge globally within $\widetilde S$;
+    \item existence is guaranteed if $\widetilde S$ is compact, or if the game is strongly inelastic and $\widetilde S$ is $d_T$-closed.
 \end{wideitemize}
 \end{mytheorem}
 
 \begin{block}{Take-away}
-Inelasticity turns weak relative feedback into uniqueness, stability,
-and dominance-solvability-type behavior.
+The zero boundary is not ignored: Thompson's metric treats different
+parts of the nonnegative orthant separately.
+\end{block}
+\end{frame}
+
+\begin{frame}{How to check inelasticity from primitives}
+\small
+For a nice game with twice differentiable payoffs, strategic elasticity can be
+computed on the best-response locus:
+\[
+\SE_i^+(\x_{-i})
+=
+\frac{
+\sum_{j\ne i}
+\left|
+\frac{\partial^2 u_i}{\partial x_i\partial x_j}
+(x_i^*,\x_{-i})
+\right|x_j
+}{
+\left|
+\frac{\partial^2 u_i}{\partial x_i^2}
+(x_i^*,\x_{-i})
+\right|x_i^*
+},
+\qquad
+x_i^*=br_i(\x_{-i}).
+\]
+
+\begin{block}{Interpretation}
+SEM is a scaled diagonal-dominance condition in log space: own curvature
+must dominate total cross effects after weighting by action levels.
 \end{block}
 \end{frame}
 
@@ -258,6 +290,12 @@ How strategic feedback amplifies the direct effect.
 \end{block}
 \end{column}
 \end{columns}
+
+\vspace{0.5em}
+\begin{block}{What is new}
+The bound is global for finite parameter changes and unit-free because both
+sides are elasticities.
+\end{block}
 \end{frame}
 
 \sectiontransition{Application}
@@ -348,11 +386,16 @@ proportional increase in equilibrium actions after network feedback.
 \begin{frame}{Contributions}
 \begin{wideitemize}
     \item Introduce strategic elasticity as a relative measure of feedback in games.
-    \item Show that inelastic mappings are contractions under Thompson's metric.
+    \item Extend elasticity to multidimensional and nonsmooth best-response mappings.
+    \item Show that inelastic mappings are contractive under Thompson's metric.
     \item Obtain uniqueness, existence, global stability, and quantitative comparative statics.
     \item Use SEM to explain why bounded network games can be well behaved even with large absolute network effects.
-    \item Derive network-game conditions that incorporate both interaction structure $\G$ and individual characteristics $\q$.
+    \item Derive conditions that incorporate both interaction structure $\G$ and individual characteristics $\q$.
 \end{wideitemize}
+
+\vspace{0.4em}
+\centering
+\backupbutton{backup-other-applications}{Other applications in the paper}
 \end{frame}
 
 \begin{frame}{Take-away}
@@ -423,6 +466,27 @@ d_T(\x+\q,\y+\q)
 Larger stand-alone incentives can reduce proportional sensitivity to peers.
 This is why $\q$ appears in SEM but disappears from many norm-based conditions.
 \end{block}
+\end{frame}
+
+\begin{frame}[label=backup-other-applications]{Backup: other applications in the paper}
+\small
+\begin{wideitemize}
+    \item \alert{Linear-aggregator best responses}: composition rules separate
+    network aggregation from the reduced best-response function.
+    \item \alert{CES Bertrand}: strategic elasticity is pinned down by the
+    elasticity of substitution:
+    \[
+    \SE_{\mathcal G^{\mathrm{CES}}}^+
+    =
+    1-\frac{1}{1-r}
+    \in(0,1).
+    \]
+    \item \alert{Cost pass-through}: the equilibrium price map has complete
+    relative pass-through for common cost shocks and incomplete idiosyncratic
+    log pass-through.
+    \item \alert{Trade}: SEM can also be used to organize positive-equilibrium
+    uniqueness in feedback systems beyond games.
+\end{wideitemize}
 \end{frame}
 
 \begin{frame}{Backup: references}
