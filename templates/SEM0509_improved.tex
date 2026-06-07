@@ -62,8 +62,8 @@
   {\end{itemize}}
 
 \newenvironment{transitionframe}
-  {\setbeamercolor{normal text}{fg=black,bg=semYellow}
-   \setbeamercolor{frametitle}{fg=black,bg=semYellow}
+  {\setbeamercolor{normal text}{fg=semBlue,bg=semBg}
+   \setbeamercolor{frametitle}{fg=semBlue,bg=semBg}
    \begin{frame}[plain,c]}
   {\end{frame}
    \setbeamercolor{normal text}{fg=black,bg=semBg}
@@ -72,7 +72,8 @@
 \newcommand{\sectiontransition}[1]{
 \begin{transitionframe}
 \centering
-{\Huge\bfseries #1}
+{\Huge\bfseries #1}\\[0.8em]
+{\color{semOrange}\rule{0.36\linewidth}{1.4pt}}
 \end{transitionframe}
 }
 
