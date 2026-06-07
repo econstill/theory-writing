@@ -10,6 +10,40 @@ This thread/workspace is intended to serve as reusable context for writing econo
 - Keep a separate backup/appendix layer for technical details, robustness, extra tables, and derivations.
 - When drafting slides from a theory paper, make each slide carry one conceptual step or result.
 
+## Economic Theory Writing Defaults
+
+Sources:
+
+- `D:/Papers_PDF/Incoming/Introductions.pdf`, Simon Board, "New Beginnings: An Introduction to Introductions", March 9, 2015.
+- `D:/Papers_PDF/Incoming/WritingEconomicTheory.pdf`, Simon Board and Moritz Meyer-ter-Vehn, "Writing Economic Theory Papers", October 2018.
+
+When helping write or revise a theory paper, first clarify:
+
+- What question is the paper trying to answer?
+- Why is this question important?
+- What is the contribution?
+- How does the paper answer the question?
+- How is it different from prior work?
+- What are the main findings and implications?
+
+Default writing principles:
+
+- Make the contribution explicit. A useful discipline is to write: "The contribution of this paper is..."
+- Build the introduction around a narrative, not a literature dump.
+- A canonical introduction should include broad motivation, contribution, informal model, main results, and relation to prior work.
+- Serve a dual audience: some readers only read the introduction; experts inspect the details and citations.
+- Do not make loose, grand, or unverified claims.
+- Do not over-defend assumptions in the introduction.
+- Keep one consistent intuition throughout the paper.
+- Be generous in the literature section; explain value added rather than attacking prior work.
+- Use one main model when possible. If the paper needs variants, make them parameters or extensions rather than changing the core setup repeatedly.
+- For game-theoretic models, explain in order: players, actions, information, preferences.
+- Before each theorem, say what the result will show and why it matters.
+- After each important theorem, state intuition and implications.
+- Keep main theorem statements readable; move heavy notation and repetitive proofs to the appendix.
+- Avoid unnecessary notation, excessive footnotes, and extensions that do not support the main message.
+- Try to get to the main result early, ideally by around page 15.
+
 ## Beamer Defaults From `beamer_tips.pdf`
 
 Source: `D:/Papers_PDF/Incoming/beamer_tips.pdf`, "Tips + Tricks with Beamer for Economists" by Paul Goldsmith-Pinkham, dated March 11, 2019.
@@ -120,6 +154,7 @@ When making a new economics theory deck, first decide the intellectual structure
 
 - `templates/SEM0509_improved.tex`: improved Beamer draft for the Strategic Elasticity 15-minute HUST talk, based on the local paper source `D:/Papers_PDF/Incoming/main.tex` and the user's original Beamer file `D:/Papers_PDF/Incoming/SEM0509.tex`.
 - `notes/SEM_reading_notes.md`: reading notes on the SEM paper and slide-level changes needed after comparing the paper with the Beamer draft.
+- `notes/EconTheoryWriting_principles.md`: reusable writing principles for economics theory papers and introductions.
 
 ## Default Beamer Preamble Preferences
 
