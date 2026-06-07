@@ -1,0 +1,442 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\useinnertheme{metropolis}
+\useoutertheme[progressbar=frametitle]{metropolis}
+\usecolortheme{metropolis}
+\usefonttheme{default}
+
+\PassOptionsToPackage{round, authoryear}{natbib}
+\usepackage{natbib}
+\usepackage{appendixnumberbeamer}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{xspace}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta, calc, positioning, shapes, backgrounds, fit}
+
+\definecolor{semBlue}{RGB}{0,114,178}
+\definecolor{semOrange}{RGB}{213,94,0}
+\definecolor{semYellow}{RGB}{240,228,66}
+\definecolor{semGreen}{RGB}{0,158,115}
+\definecolor{semBg}{RGB}{255,253,236}
+\definecolor{mDarkTeal}{HTML}{23373b}
+\definecolor{blockTitleBg}{RGB}{225, 229, 233}
+\definecolor{blockBodyBg}{RGB}{246, 247, 249}
+\definecolor{citePurple}{RGB}{105, 55, 160}
+
+\setbeamercolor{normal text}{fg=black,bg=semBg}
+\setbeamercolor{frametitle}{fg=semBlue,bg=semBg}
+\setbeamercolor{title}{fg=black,bg=semBg}
+\setbeamercolor{progress bar}{fg=semOrange,bg=blockTitleBg}
+\setbeamercolor{alerted text}{fg=semOrange}
+\setbeamercolor{block title}{bg=blockTitleBg, fg=mDarkTeal}
+\setbeamercolor{block body}{bg=blockBodyBg, fg=black}
+\setbeamercolor{itemize item}{fg=semBlue}
+\setbeamercolor{itemize subitem}{fg=semBlue}
+\setbeamercolor{enumerate item}{fg=semBlue}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{author}{size=\large}
+\setbeamertemplate{theorems}[numbered]
+
+\hypersetup{
+    colorlinks=true,
+    citecolor=citePurple,
+    linkcolor=citePurple,
+    urlcolor=citePurple
+}
+
+\theoremstyle{plain}
+\newtheorem{mytheorem}{Theorem}
+\newtheorem{myproposition}{Proposition}
+\newtheorem{mycorollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{mydefinition}{Definition}
+\newtheorem{myexample}{Example}
+
+\newenvironment{wideitemize}
+  {\begin{itemize}\setlength{\itemsep}{0.72em}}
+  {\end{itemize}}
+
+\newenvironment{transitionframe}
+  {\setbeamercolor{normal text}{fg=black,bg=semYellow}
+   \setbeamercolor{frametitle}{fg=black,bg=semYellow}
+   \begin{frame}[plain,c]}
+  {\end{frame}
+   \setbeamercolor{normal text}{fg=black,bg=semBg}
+   \setbeamercolor{frametitle}{fg=semBlue,bg=semBg}}
+
+\newcommand{\sectiontransition}[1]{
+\begin{transitionframe}
+\centering
+{\Huge\bfseries #1}
+\end{transitionframe}
+}
+
+\newcommand{\backupbutton}[2]{\hyperlink{#1}{\beamergotobutton{#2}}}
+\newcommand{\mainbutton}[2]{\hyperlink{#1}{\beamerreturnbutton{#2}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\G}{\mathbf{G}}
+\newcommand{\q}{\mathbf{q}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\0}{\mathbf{0}}
+\newcommand{\SE}{\mathrm{SE}}
+\newcommand{\PE}{\mathrm{PE}}
+\newcommand{\E}{\mathrm{E}}
+
+\title{\textbf{Strategic Elasticity}}
+\subtitle{A relative measure of feedback in games}
+\author{Zhigang Cao, \textbf{Sijie Wang}, Feng Zhu}
+\institute{
+Beijing Jiaotong University\\[0.35em]
+\textit{Talk at HUST}\\[0.35em]
+{\small 15-minute version}
+}
+\date{June 12, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{The puzzle}
+\begin{wideitemize}
+    \item Games are hard because players respond to one another.
+    \item Weak feedback usually gives uniqueness, stability, and tractable comparative statics.
+    \item The literature mostly measures feedback in \alert{absolute} terms:
+    slopes, Jacobians, network effects, or spectral radii.
+    \item But many economic restrictions are naturally \alert{relative}: bounded choices,
+    positive baselines, and proportional changes.
+\end{wideitemize}
+
+\begin{block}{Question}
+Can weak \alert{relative responsiveness} deliver good equilibrium properties
+even when absolute responsiveness is large?
+\end{block}
+\end{frame}
+
+\begin{frame}[label=main-absolute-relative]{Why absolute responsiveness can mislead}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{block}{Standard view}
+\begin{wideitemize}
+    \item Strong network effects make uniqueness difficult.
+    \item In linear games, conditions usually restrict $\G$.
+    \item Individual characteristics $\q$ often disappear.
+\end{wideitemize}
+\end{block}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{block}{SEM view}
+\begin{wideitemize}
+    \item Bounds and stand-alone incentives reduce relative feedback.
+    \item A large slope need not imply a large elasticity.
+    \item $\G$, $\q$, and bounds jointly matter.
+\end{wideitemize}
+\end{block}
+\end{column}
+\end{columns}
+
+\vspace{0.6em}
+\centering
+\backupbutton{backup-network-puzzle}{Network-game motivation}
+\end{frame}
+
+\sectiontransition{Idea}
+
+\begin{frame}{Elasticity is log-log Lipschitz responsiveness}
+For $\x,\y\in\R^M_{++}$, Thompson's metric is
+\[
+d_T(\x,\y)
+=
+\|\ln \x-\ln \y\|_\infty
+=
+\ln\max_i\left\{\frac{x_i}{y_i},\frac{y_i}{x_i}\right\}.
+\]
+
+For $f:K\subseteq\R^M_{++}\to\R_+$,
+\[
+\E_f^+(\x,\y)
+=
+\frac{d_T(f(\x),f(\y))}{d_T(\x,\y)}
+=
+\frac{|\ln f(\x)-\ln f(\y)|}
+{\|\ln \x-\ln \y\|_\infty}.
+\]
+
+\begin{block}{Key observation}
+Elasticity is a contraction modulus under log-log geometry.
+\end{block}
+\end{frame}
+
+\begin{frame}{From functions to games}
+\begin{wideitemize}
+    \item A player's best response $br_i(\x_{-i})$ is the object that transmits strategic feedback.
+    \item The strategic elasticity of player $i$ is the elasticity of $br_i$:
+    \[
+    \SE_i^+(\x_{-i})
+    =
+    \E_{br_i}^+(\x_{-i}).
+    \]
+    \item A game is \alert{inelastic} if every best response has point strategic elasticity below one.
+    \item It is \alert{strongly inelastic} if the global strategic elasticity is below one.
+\end{wideitemize}
+
+\begin{block}{Interpretation}
+A one-percent change in opponents' actions generates less than a one-percent
+change in each player's best response.
+\end{block}
+\end{frame}
+
+\sectiontransition{Results}
+
+\begin{frame}{Fixed-point theorem: the engine}
+\begin{mytheorem}[Fixed Points]
+Let $K\subseteq\R^M_{++}$ be nonempty and log-convex, and let $F:K\to K$ be inelastic.
+\begin{wideitemize}
+    \item $F$ admits at most one fixed point.
+    \item If a fixed point exists, iterating $F$ converges to it from every initial point.
+    \item Existence follows from compact invariance, or from strong inelasticity plus closedness.
+\end{wideitemize}
+\end{mytheorem}
+
+\begin{block}{Why this matters}
+The method is a Banach-style contraction argument, but with Thompson's metric
+instead of a normed metric.
+\end{block}
+\end{frame}
+
+\begin{frame}{Equilibrium of inelastic games}
+\begin{mytheorem}[Equilibrium]
+For an inelastic game with log-convex strategy space $S\subseteq\R^N_{++}$:
+\begin{wideitemize}
+    \item there is at most one Nash equilibrium;
+    \item if an equilibrium exists, best-response dynamics converge globally;
+    \item existence is guaranteed under compactness, or under strong inelasticity and closedness.
+\end{wideitemize}
+\end{mytheorem}
+
+\begin{block}{Take-away}
+Inelasticity turns weak relative feedback into uniqueness, stability,
+and dominance-solvability-type behavior.
+\end{block}
+\end{frame}
+
+\begin{frame}{Comparative statics}
+For a family of strongly inelastic games $\{\mathcal G(\bm{\theta})\}$,
+let $\x^*(\bm{\theta})$ be the unique equilibrium.
+\[
+\E_{\x^*}^+(\bm{\theta})
+\le
+\max_{i\in N}
+\frac{\PE_i^+(\bm{\theta})}
+{1-\SE_i^+(\x^*(\bm{\theta}))}.
+\]
+
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}
+\begin{block}{Direct effect}
+\[
+\PE_i^+(\bm{\theta})
+\]
+How parameters move player $i$'s best response directly.
+\end{block}
+\end{column}
+\begin{column}{0.47\textwidth}
+\begin{block}{Feedback multiplier}
+\[
+\frac{1}{1-\SE_i^+}
+=1+\SE_i^++(\SE_i^+)^2+\cdots
+\]
+How strategic feedback amplifies the direct effect.
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\sectiontransition{Application}
+
+\begin{frame}{Linear best responses on bounded domains}
+\begin{wideitemize}
+    \item Consider bounded strategy spaces $[\mathbf a,\mathbf b]\subseteq\R^N_+$.
+    \item Best response:
+    \[
+    br_i(\x_{-i})
+    =
+    \operatorname{med}
+    \left\{
+    a_i,\,
+    q_i+\sum_{j\ne i}g_{ij}x_j,\,
+    b_i
+    \right\}.
+    \]
+    \item $\G=(g_{ij})$ measures interaction effects.
+    \item $q_i$ is the autarkic optimum, or stand-alone incentive.
+\end{wideitemize}
+
+\begin{block}{What previous conditions miss}
+Most uniqueness conditions focus on $\G$; SEM makes $\q$ and bounds visible.
+\end{block}
+\end{frame}
+
+\begin{frame}{Strategic elasticity in the linear game}
+\small
+At interior points of player $i$'s best response,
+\[
+\SE_i^+(\x_{-i})
+=
+\frac{\sum_{j\ne i}|g_{ij}|x_j}
+{q_i+\sum_{j\ne i}g_{ij}x_j}.
+\]
+
+\begin{block}{Reading the formula}
+\begin{wideitemize}
+    \item Numerator: total absolute influence from others.
+    \item Denominator: the level of the best response.
+    \item Bounds set elasticity to zero when the response is stuck at a boundary.
+    \item Larger stand-alone incentives can dampen relative feedback.
+\end{wideitemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Main network-game implication}
+\begin{myproposition}
+For a bounded linear best-response game with $\q>\0$, the game is strongly
+inelastic if, for every player $i$,
+\[
+q_i>
+2\sum_{j:g_{ij}<0}|g_{ij}|b_j.
+\]
+\end{myproposition}
+
+\begin{wideitemize}
+    \item With pure strategic complements, $\G\ge0$, the condition reduces to $q_i>0$.
+    \item With signed interactions, uniqueness depends on the balance between negative influence and stand-alone incentives.
+    \item This answers a question about uniqueness conditions that depend jointly on $\G$ and $\q$.
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Relative pass-through}
+\begin{myproposition}
+If $\G\ge \0$ in the bounded linear network game, then
+\[
+\E_{\x^*}^+(\q)\le 1
+\qquad
+\text{for all }\q>\0.
+\]
+\end{myproposition}
+
+\begin{block}{Interpretation}
+A proportional increase in stand-alone incentives cannot generate a larger
+proportional increase in equilibrium actions after network feedback.
+\end{block}
+
+\begin{wideitemize}
+    \item Absolute pass-through can exceed one in network games.
+    \item Relative pass-through is disciplined by strategic inelasticity.
+\end{wideitemize}
+\end{frame}
+
+\sectiontransition{Message}
+
+\begin{frame}{Contributions}
+\begin{wideitemize}
+    \item Introduce strategic elasticity as a relative measure of feedback in games.
+    \item Show that inelastic mappings are contractions under Thompson's metric.
+    \item Obtain uniqueness, existence, global stability, and quantitative comparative statics.
+    \item Use SEM to explain why bounded network games can be well behaved even with large absolute network effects.
+    \item Derive network-game conditions that incorporate both interaction structure $\G$ and individual characteristics $\q$.
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Take-away}
+\begin{center}
+{\Large
+Strategic elasticity measures how much strategic feedback survives
+after moving from absolute changes to relative changes.
+}
+\end{center}
+
+\vspace{1em}
+
+\begin{wideitemize}
+    \item If feedback is relatively weak, equilibria are unique and stable.
+    \item Thompson's metric is the geometry that makes this precise.
+    \item In network games, strategic elasticity plays a role analogous to spectral radius,
+    but it also incorporates scale, bounds, and stand-alone incentives.
+\end{wideitemize}
+\end{frame}
+
+\appendix
+
+\sectiontransition{Backup}
+
+\begin{frame}[label=backup-network-puzzle]{Backup: network-game motivation}
+\small
+\begin{wideitemize}
+    \item Strategic complementarity is a primary driver of equilibrium multiplicity
+    \citep{cooper1988coordinating}.
+    \item In network games, uniqueness usually requires weak network effects
+    \citep{ballester2006s,bramoulle2014strategic}.
+    \item \citet{belhaj2014network} show that bounded network games with strategic complements
+    can have a unique equilibrium regardless of the strength of network effects.
+    \item SEM explains the puzzle: bounded domains and positive baselines make the best-response
+    map relatively inelastic.
+\end{wideitemize}
+
+\vspace{0.5em}
+\mainbutton{main-absolute-relative}{Back}
+\end{frame}
+
+\begin{frame}{Backup: relation to existing fixed-point theorems}
+\begin{wideitemize}
+    \item Kennan's fixed point theorem is widely used in network economics.
+    \item Du's fixed point theorem is useful for monotone dynamic economic models.
+    \item The SEM fixed-point theorem subsumes both as special cases.
+    \item The advantage is that SEM does not take monotonicity, concavity, or convexity
+    as primitive assumptions.
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Backup: why $q_i$ matters in Thompson's metric}
+In a normed metric, parallel translations do not change distance.
+
+\[
+\|(\x+\q)-(\y+\q)\|=\|\x-\y\|.
+\]
+
+In Thompson's metric, translations away from the origin can shrink relative distance:
+
+\[
+d_T(\x+\q,\y+\q)
+=
+\|\ln(\x+\q)-\ln(\y+\q)\|_\infty.
+\]
+
+\begin{block}{Economic reading}
+Larger stand-alone incentives can reduce proportional sensitivity to peers.
+This is why $\q$ appears in SEM but disappears from many norm-based conditions.
+\end{block}
+\end{frame}
+
+\begin{frame}{Backup: references}
+\footnotesize
+\begin{wideitemize}
+    \item Ballester, Calvo-Armengol, and Zenou (2006), ``Who's who in networks.''
+    \item Belhaj, Bramoulle, and Deroian (2014), ``Network games under strategic complementarities.''
+    \item Bulow, Geanakoplos, and Klemperer (1985), ``Multimarket oligopoly.''
+    \item Cooper and John (1988), ``Coordinating coordination failures.''
+    \item Du (1990), fixed point theorem for monotone mappings.
+    \item Kennan (2001), uniqueness theorem for positive fixed points.
+    \item Marshall (1890), \textit{Principles of Economics}.
+    \item Thompson (1963), ``Certain contraction mappings in a partially ordered vector space.''
+    \item Vives (1990, 2005), strategic complementarities and uniqueness.
+\end{wideitemize}
+\end{frame}
+
+\end{document}
