@@ -119,6 +119,7 @@ When making a new economics theory deck, first decide the intellectual structure
 ## Project Files
 
 - `templates/SEM0509_improved.tex`: improved Beamer draft for the Strategic Elasticity 15-minute HUST talk, based on the local paper source `D:/Papers_PDF/Incoming/main.tex` and the user's original Beamer file `D:/Papers_PDF/Incoming/SEM0509.tex`.
+- `notes/SEM_reading_notes.md`: reading notes on the SEM paper and slide-level changes needed after comparing the paper with the Beamer draft.
 
 ## Default Beamer Preamble Preferences
 
