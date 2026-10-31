@@ -116,6 +116,12 @@ Good results usually say what must happen, not merely what may happen, unless th
 - Use the appendix for heavy notation, repetitive arguments, and technical details.
 - The appendix should still serve the paper's narrative; it is not a dumping ground.
 
+### Equation Numbering
+
+- Number a displayed equation only when it is actually cross-referenced elsewhere in the active manuscript. Audit the whole paper, including later references and included appendices or sections; a `\label` alone does not count as a reference. Exclude commented text and independent backup drafts or slide decks.
+- Use unnumbered displays such as `\[...\]`, `equation*`, or `align*` for unreferenced equations. In multi-line displays, number only referenced rows and suppress the others with `\notag` or `\nonumber`.
+- Preserve valid labels and cross-references. Let LaTeX update equation numbers automatically; do not hard-code numbers or renumber them manually.
+
 ## Length And Scope
 
 - Keep the paper as short as possible.

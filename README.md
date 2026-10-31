@@ -42,6 +42,7 @@ Default writing principles:
 - After each important theorem, state intuition and implications.
 - Keep main theorem statements readable; move heavy notation and repetitive proofs to the appendix.
 - Avoid unnecessary notation, excessive footnotes, and extensions that do not support the main message.
+- Number displayed equations only when actually cross-referenced in the manuscript, including later text and appendices; leave unreferenced displays and unreferenced rows of multi-line displays unnumbered.
 - Try to get to the main result early, ideally by around page 15.
 
 ## Beamer Defaults From `beamer_tips.pdf`
