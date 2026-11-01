@@ -122,6 +122,15 @@ Good results usually say what must happen, not merely what may happen, unless th
 - Use unnumbered displays such as `\[...\]`, `equation*`, or `align*` for unreferenced equations. In multi-line displays, number only referenced rows and suppress the others with `\notag` or `\nonumber`.
 - Preserve valid labels and cross-references. Let LaTeX update equation numbers automatically; do not hard-code numbers or renumber them manually.
 
+## Figures And Visual Consistency
+
+The author's standing convention is to give figures within a manuscript a consistent style and scale.
+
+- Use consistent fonts and label sizes, node dimensions, edge widths and arrowheads, colors, component frames, panel labels, and caption formatting. The same visual feature should carry the same meaning throughout the paper.
+- Match the physical sizes of comparable elements at the final printed size. Different network sizes or numbers of panels may require different overall figure dimensions; do not stretch graphs or shrink labels merely to force identical bounding boxes.
+- For repeated TikZ diagrams, define and reuse shared styles for nodes, edges, weights, and component frames. A local revision should preserve these common settings unless the difference has a substantive purpose.
+- Compile and inspect related figures side by side at their actual manuscript size. Check legibility, scale, spacing, and the placement of labels and arrows; ensure that labels do not overlap nodes or edges.
+
 ## Length And Scope
 
 - Keep the paper as short as possible.
