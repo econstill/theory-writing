@@ -1,5 +1,12 @@
 # Econ Theory Writing And Slides Context
 
+## Start Here for Every Writing Task
+
+Read [Author Standing Instructions](notes/Author_standing_instructions.md) first, followed by [Economic Theory Writing Principles](notes/EconTheoryWriting_principles.md) and this README. The standing instructions preserve the author's detailed corrections previously kept in a local project `AGENTS.md`, including the inverted-pyramid structure, abstract–introduction correspondence, author-edit preservation, mathematical scope, terminology, examples, and figure consistency. The repository root [AGENTS.md](AGENTS.md) defines the required reading and update workflow.
+
+Current user instructions govern the task. Author-specific instructions refine general reference advice; page targets, footnote counts, introductory roadmaps, and slide presets are flexible guidance, not mechanical requirements. In particular, introduce the purpose of a theorem before stating it, while keeping substantive conclusions that need proof in the theorem or proposition.
+
+
 This thread/workspace is intended to serve as reusable context for writing economics theory papers and Beamer slides. When continuing this work in another Codex thread or on another machine, read this file first and treat it as standing background.
 
 ## Working Style

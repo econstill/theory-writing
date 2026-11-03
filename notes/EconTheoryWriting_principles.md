@@ -1,5 +1,7 @@
 # Economic Theory Writing Principles
 
+Read [Author Standing Instructions](Author_standing_instructions.md) first. Those author-specific corrections refine the general reference guidance below.
+
 Sources:
 
 - `D:/Papers_PDF/Incoming/Introductions.pdf`, Simon Board, "New Beginnings: An Introduction to Introductions", March 9, 2015.
@@ -91,7 +93,7 @@ The analysis should tell the reader where it is going and why each step matters.
 
 For each result:
 
-- Before the result: define needed objects, remind the reader of relevant facts, and say in words what the result will show.
+- Before the result: define needed objects, remind the reader of relevant facts, and explain the question and purpose. Keep substantive conclusions requiring proof in the theorem or proposition rather than announcing them in advance.
 - Theorem statement: make it self-contained, rigorous, and as readable as possible.
 - Proof: include it in the main text only if it is short, interesting, or central. Put standard or repetitive proofs in the appendix.
 - Intuition: explain every important result in simple economic language.
@@ -146,7 +148,7 @@ When helping write an economics theory paper:
 - Start by identifying the paper's contribution category.
 - Draft or revise the introduction around a clear narrative, not a literature dump.
 - Keep model exposition in the order: players, actions, information, preferences.
-- Before each theorem, add a short roadmap sentence.
+- Before each theorem, orient the reader where useful; do not add repetitive roadmap sentences or move proof-dependent conclusions outside the result environment.
 - After each important theorem, add intuition and implications.
 - Move heavy proofs, extensions, and robustness details to appendix unless they are central.
 - Watch for loose claims, repeated citations, inconsistent intuition, and unnecessary notation.
