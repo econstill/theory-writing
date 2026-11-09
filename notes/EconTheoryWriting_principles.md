@@ -135,7 +135,7 @@ The author's standing convention is to give figures within a manuscript a consis
 
 ## Length And Scope
 
-- Keep the paper as short as possible.
+- Keep the paper as short as possible without losing information or logical connections needed to understand the argument; apply the sentence-level review in the author's standing instructions.
 - Try to reach the main result by around page 15.
 - Do not include every implication produced by the model.
 - Include an extension only if it supports the paper's main message.
