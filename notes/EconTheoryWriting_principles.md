@@ -124,6 +124,10 @@ Good results usually say what must happen, not merely what may happen, unless th
 - Use unnumbered displays such as `\[...\]`, `equation*`, or `align*` for unreferenced equations. In multi-line displays, number only referenced rows and suppress the others with `\notag` or `\nonumber`.
 - Preserve valid labels and cross-references. Let LaTeX update equation numbers automatically; do not hard-code numbers or renumber them manually.
 
+### LaTeX Pagination
+
+Author-specific formatting preference (2026-11-15): Do not use `\begin{samepage}...\end{samepage}` wrappers in manuscripts. The author considers this environment unnecessary and prefers normal page breaks.
+
 ## Figures And Visual Consistency
 
 The author's standing convention is to give figures within a manuscript a consistent style and scale.
