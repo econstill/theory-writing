@@ -6,6 +6,7 @@ Sources:
 
 - `D:/Papers_PDF/Incoming/Introductions.pdf`, Simon Board, "New Beginnings: An Introduction to Introductions", March 9, 2015.
 - `D:/Papers_PDF/Incoming/WritingEconomicTheory.pdf`, Simon Board and Moritz Meyer-ter-Vehn, "Writing Economic Theory Papers", October 2018.
+- Ruodu Wang, "Suggestions for writing mathematics in scientific papers", supplied PDF dated February 20, 2024; practical guidance and source-specific qualifications are consolidated in [Mathematical Writing Practical Guide](MathematicalWriting_practical_guide.md).
 
 ## Core Question
 
@@ -69,6 +70,7 @@ The introduction is not a mystery story. Readers should not have to infer the co
 - Describe prior papers enough for readers to understand the contrast.
 - Use footnotes for less central references.
 - Remember that cited authors may be referees.
+- Give each citation a clear purpose and a locator for any specific result being used; see the practical guide's [citation checks](MathematicalWriting_practical_guide.md#citations).
 
 ## Model Section
 
@@ -113,6 +115,7 @@ Good results usually say what must happen, not merely what may happen, unless th
 ## Notation, Footnotes, And Appendix
 
 - Eliminate all nonessential notation.
+- Apply the practical guide's [mathematical expression checks](MathematicalWriting_practical_guide.md#mathematical-expression): distinguish mappings from values and optimal values from optimizers, state quantifier scope and vector conventions clearly, and integrate formulas into grammatical sentences.
 - Footnotes are for optional clarifications, not necessary definitions.
 - A paper should generally have fewer footnotes than pages.
 - Use the appendix for heavy notation, repetitive arguments, and technical details.
@@ -156,3 +159,4 @@ When helping write an economics theory paper:
 - After each important theorem, add intuition and implications.
 - Move heavy proofs, extensions, and robustness details to appendix unless they are central.
 - Watch for loose claims, repeated citations, inconsistent intuition, and unnecessary notation.
+- Apply the [practical final review](MathematicalWriting_practical_guide.md#final-review-before-delivery) to the affected text and rendered pages, checking mathematical English, precise citations, and LaTeX layout in context.

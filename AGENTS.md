@@ -7,11 +7,11 @@ This repository is the author's shared source for economics paper and presentati
 Before every substantive paper-writing, revision, proof-exposition, abstract, introduction, or presentation task:
 
 1. Read the latest `notes/Author_standing_instructions.md` in full.
-2. Read `notes/EconTheoryWriting_principles.md` and `README.md` in full. For presentation work, also read the relevant manuscript and applicable slide notes/template.
+2. Read `notes/EconTheoryWriting_principles.md`, `notes/MathematicalWriting_practical_guide.md`, and `README.md` in full. The practical guide supplies sentence-, notation-, citation-, and LaTeX-level checks. For presentation work, also read the relevant manuscript and applicable slide notes/template.
 3. Fetch the current GitHub version of the target manuscript and compare it with the last reviewed version before editing. Preserve the author's intervening changes.
-4. Apply the principles to actual wording and structure, then review the diff, mathematical scope, and affected rendered pages. Reading a checklist without applying it is insufficient.
+4. Apply the principles to actual wording and structure, then review the diff, mathematical scope, and affected rendered pages. Complete the practical guide's final review on the affected text in context. Reading a checklist without applying it is insufficient.
 
-The user's current explicit instructions take precedence. Author-specific instructions refine the general reference advice: orient the reader before a theorem without announcing proof-dependent conclusions outside the result environment; keep assumptions mathematically accurate without turning the abstract into an assumption checklist; prefer one simple running example over an accumulation of separate examples. Retain manuscript-specific formatting and justified exceptions.
+The user's current explicit instructions take precedence. Author-specific instructions refine the general reference advice: orient the reader before a theorem without announcing proof-dependent conclusions outside the result environment; keep assumptions mathematically accurate without turning the abstract into an assumption checklist; prefer one simple running example over an accumulation of separate examples. Retain manuscript-specific formatting and justified exceptions. Distinguish mathematical or grammatical errors from optional reference-author preferences; do not turn a style suggestion into a universal prohibition or an automatic manuscript-wide replacement.
 
 ## Keeping the shared instructions current
 

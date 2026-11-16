@@ -2,7 +2,7 @@
 
 ## Start Here for Every Writing Task
 
-Read [Author Standing Instructions](notes/Author_standing_instructions.md) first, followed by [Economic Theory Writing Principles](notes/EconTheoryWriting_principles.md) and this README. The standing instructions preserve the author's detailed corrections previously kept in a local project `AGENTS.md`, including the inverted-pyramid structure, abstract–introduction correspondence, author-edit preservation, mathematical scope, terminology, examples, and figure consistency. The repository root [AGENTS.md](AGENTS.md) defines the required reading and update workflow.
+Read [Author Standing Instructions](notes/Author_standing_instructions.md) first, followed by [Economic Theory Writing Principles](notes/EconTheoryWriting_principles.md), [Mathematical Writing Practical Guide](notes/MathematicalWriting_practical_guide.md), and this README. The standing instructions preserve the author's detailed corrections previously kept in a local project `AGENTS.md`, including the inverted-pyramid structure, abstract–introduction correspondence, author-edit preservation, mathematical scope, terminology, examples, and figure consistency. The repository root [AGENTS.md](AGENTS.md) defines the required reading and update workflow.
 
 Current user instructions govern the task. Author-specific instructions refine general reference advice; page targets, footnote counts, introductory roadmaps, and slide presets are flexible guidance, not mechanical requirements. In particular, introduce the purpose of a theorem before stating it, while keeping substantive conclusions that need proof in the theorem or proposition.
 
@@ -23,6 +23,7 @@ Sources:
 
 - `D:/Papers_PDF/Incoming/Introductions.pdf`, Simon Board, "New Beginnings: An Introduction to Introductions", March 9, 2015.
 - `D:/Papers_PDF/Incoming/WritingEconomicTheory.pdf`, Simon Board and Moritz Meyer-ter-Vehn, "Writing Economic Theory Papers", October 2018.
+- Ruodu Wang, "Suggestions for writing mathematics in scientific papers", supplied PDF dated February 20, 2024; see the [consolidated practical guide](notes/MathematicalWriting_practical_guide.md) for source details and section references.
 
 When helping write or revise a theory paper, first clarify:
 
@@ -45,12 +46,18 @@ Default writing principles:
 - Be generous in the literature section; explain value added rather than attacking prior work.
 - Use one main model when possible. If the paper needs variants, make them parameters or extensions rather than changing the core setup repeatedly.
 - For game-theoretic models, explain in order: players, actions, information, preferences.
-- Before each theorem, say what the result will show and why it matters.
+- Before each theorem, explain the question and purpose where useful; keep substantive conclusions requiring proof in the theorem or proposition.
 - After each important theorem, state intuition and implications.
 - Keep main theorem statements readable; move heavy notation and repetitive proofs to the appendix.
 - Avoid unnecessary notation, excessive footnotes, and extensions that do not support the main message.
 - Number displayed equations only when actually cross-referenced in the manuscript, including later text and appendices; leave unreferenced displays and unreferenced rows of multi-line displays unnumbered.
 - Try to get to the main result early, ideally by around page 15.
+
+## Practical Mathematical Writing
+
+The [practical guide](notes/MathematicalWriting_practical_guide.md) supplements the paper-level principles with checks for mathematical sentences, notation, English grammar, citations, and LaTeX layout. It was integrated at the author's request on 2026-11-16. Read it before substantive writing and use its final checklist before delivery.
+
+Apply the recommendations in context. Mathematical accuracy and clear grammar are required; choices such as vector typography, English variety, serial commas, and citation phrasing follow the manuscript and journal. The guide identifies personal preferences and qualified advice rather than treating every source suggestion as a universal rule. Existing equation-numbering and pagination rules remain in their canonical sections of the principles file.
 
 ## Beamer Defaults From `beamer_tips.pdf`
 
@@ -163,6 +170,7 @@ When making a new economics theory deck, first decide the intellectual structure
 - `templates/SEM0509_improved.tex`: improved Beamer draft for the Strategic Elasticity 15-minute HUST talk, based on the local paper source `D:/Papers_PDF/Incoming/main.tex` and the user's original Beamer file `D:/Papers_PDF/Incoming/SEM0509.tex`.
 - `notes/SEM_reading_notes.md`: reading notes on the SEM paper and slide-level changes needed after comparing the paper with the Beamer draft.
 - `notes/EconTheoryWriting_principles.md`: reusable writing principles for economics theory papers and introductions.
+- `notes/MathematicalWriting_practical_guide.md`: consolidated practical guidance on mathematical English, notation, citation, and LaTeX, with a final review checklist and source-section references.
 
 ## Default Beamer Preamble Preferences
 
